@@ -19,6 +19,12 @@ const schema2 = new mongoose.Schema({
     aadharNo:{
         type:Number
     },
+    teamname:{
+        type:String
+    },
+    uso:{
+        type:String
+    },
     ideaSubject:{
         type:String
     },
@@ -42,6 +48,10 @@ const schema2 = new mongoose.Schema({
     },
     amountRequest:{
         type:Number
+    },
+    verified:{
+        type:Boolean,
+        default: false
     },  
     user:{
         type: mongoose.Schema.Types.ObjectId,

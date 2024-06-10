@@ -11,7 +11,7 @@ export const submitform = async (req, res, next) => {
     batch,
     mobileNo,
     emailId,
-    age,
+    uso,
     aadharNo,
     ideaSubject,
     detailedDescription,
@@ -20,7 +20,8 @@ export const submitform = async (req, res, next) => {
     marketingPlan,
     potentialRisks,
     salesStrategy,
-    amountRequest      
+    amountRequest,
+    teamname      
   } = req.body;
 
   const { token }=req.cookies;
@@ -32,7 +33,7 @@ export const submitform = async (req, res, next) => {
         batch,
         mobileNo,
         emailId,
-        age,
+        uso,
         aadharNo,
         ideaSubject,
         detailedDescription,
@@ -41,7 +42,8 @@ export const submitform = async (req, res, next) => {
         marketingPlan,
         potentialRisks,
         salesStrategy,
-        amountRequest, 
+        amountRequest,
+        teamname, 
         user: decoded._id, 
     });
 
