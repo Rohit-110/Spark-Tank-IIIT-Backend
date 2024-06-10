@@ -11,23 +11,17 @@ const schema1 = new mongoose.Schema({
     password: {
         type: String,
     },
-    isAlumni:{
-        type: String,
-    },
     batchYear:{
         type: Number,
+    },
+    studentId:{
+        type: String,
     },
     degree:{
         type: String,
     },
-    resumeLink:{
-        type: String,
-    },
     mobile:{
         type: Number,
-    },
-    photo:{
-        type: String,
     },
 });
 export const Student = mongoose.model("student",schema1);

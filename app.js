@@ -1,9 +1,9 @@
 import cors from 'cors';
 import { config } from 'dotenv';
 import express from 'express';
-import paymentRoute from './routes/paymentRoutes.js';
 import cookieParser from 'cookie-parser';
 import studentRouter from './routes/student.js'
+import entrepreneurRouter from './routes/form.js'
 
 export const app = express();
 
@@ -25,4 +25,4 @@ app.use(cors({
 app.set('view engine', 'ejs');
 
 app.use("/api/user",studentRouter);
-app.use('/api',paymentRoute);
+app.use("/api/form",entrepreneurRouter);
