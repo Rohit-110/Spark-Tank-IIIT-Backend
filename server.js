@@ -4,8 +4,8 @@ import { connectdb } from './config/database.js';
 
 connectdb();
 export const instance = new Razorpay({
-    key_id: process.env.Razorpay_API_KEY,
-    key_secret: process.env.Razorpay_API_SECRET,
+    key_id: process.env.RAZORPAY_API_KEY,
+    key_secret: process.env.RAZORPAY_API_SECRET,
 });
 
 
