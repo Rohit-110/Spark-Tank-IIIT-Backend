@@ -95,6 +95,7 @@ export const getallform = async (req, res, next) => {
         res.status(200).json({
             success: true,
             entrepreneur,
+            
         });
     } catch (error) {
         console.error(error);
