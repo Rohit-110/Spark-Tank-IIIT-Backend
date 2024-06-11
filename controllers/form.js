@@ -90,7 +90,7 @@ export const getmyform = async (req, res, next) => {
 
 export const getallform = async (req, res, next) => {
     try {
-        const entrepreneur = await Form.find({}).toArray();;
+        const entrepreneur = await Form.find({});
 
         res.status(200).json({
             success: true,
