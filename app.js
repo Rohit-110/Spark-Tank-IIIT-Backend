@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-    origin: ["https://spark-tank-iiit-frontend.vercel.app"],
+    origin: ["http://localhost:3000"],
     methods: ["GET","POST","PUT","DELETE"],
     credentials: true,
 }))

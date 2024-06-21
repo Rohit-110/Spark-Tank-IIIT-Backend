@@ -38,7 +38,7 @@ export const login = async (req, res, next) => {
     if (!student) {
         return res.status(404).json({
             success: false,
-            message: "Invalid Email or Password",
+            message: "Invalid Email id or Password",
         });
     }
     const username = student.name;
@@ -49,6 +49,7 @@ export const login = async (req, res, next) => {
                 message: "Server error",
             });
         }
+
         if (!isMatch) {
             return res.status(404).json({
                 success: false,
@@ -81,47 +82,25 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-export const getmyprofile = async (req, res) => {
-    const token = req.cookies.token;
 
-    if (!token) {
-        return res.status(404).json({
-            success: false,
-            message: "Login First",
-        });
-    }
+export const getmyprofile = async (req,res)=>{
+    const { token }=req.cookies;
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded; 
-        try {
-            const student = await Student.findById(req.user._id); 
-            if (!student) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Student not found",
-                });
-            }
-            res.status(200).json({
-                success: true,
-                student,
-            });
-        } catch (error) {
-            console.error('Error in getmyprofile:', error);
-            res.status(500).json({
-                success: false,
-                message: "Server Error",
-            });
-        }
-    } catch (error) {
-        return res.status(401).json({
-            success: false,
-            message: "Invalid token",
-        });
-    }
-  
-    
-  };
+    if(!token)
+    return res.status(404).json({
+        success: false,
+        message:"Login First",
+    });
+
+    const decoded= jwt.verify(token,process.env.JWT_SECRET);
+    const student= await Student.findById(decoded._id);
+
+    res.status(200).json({
+        success:true,
+        student,
+    })
+};
+
 
 export const logout = async (req,res)=>{
     res
