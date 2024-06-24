@@ -35,7 +35,7 @@ export const register = async (req, res) => {
 export const login = async (req, res, next) => {
     const { email, password } = req.body;
     const student = await Student.findOne({ email }).select("+password");
-    if (!student) {
+    if (!student){
         return res.status(404).json({
             success: false,
             message: "Invalid Email id or Password",
@@ -49,7 +49,6 @@ export const login = async (req, res, next) => {
                 message: "Server error",
             });
         }
-
         if (!isMatch) {
             return res.status(404).json({
                 success: false,
