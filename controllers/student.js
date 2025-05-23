@@ -8,7 +8,9 @@ import { Payment } from "../models/paymentModel.js";
 
 
 export const register = async (req, res) => {
+    
     const { name, email, password, mobile,batchYear, degree ,studentId } = req.body;
+    console.log(req.body);
 
     try {
         let student = await Student.findOne({ email });
