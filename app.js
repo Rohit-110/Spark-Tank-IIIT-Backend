@@ -1,9 +1,9 @@
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { config } from 'dotenv';
 import express from 'express';
-import cookieParser from 'cookie-parser';
-import studentRouter from './routes/student.js'
-import entrepreneurRouter from './routes/form.js'
+import entrepreneurRouter from './routes/form.js';
+import studentRouter from './routes/student.js';
 
 export const app = express();
 
