@@ -22,9 +22,9 @@ export const register = async (req, res) => {
             });
         }
         const hashedPassword = await bcrypt.hash(password, 10);
-        student = await Student.create({ name, email, password: hashedPassword, mobile,batchYear,degree,studentId });
+        const student1 = await Student.create({ name, email, password: hashedPassword, mobile,batchYear,degree,studentId });
 
-        sendCookie(student, res, "Registered Successfully", 201);
+        sendCookie(student1, res, "Registered Successfully", 200);
     } catch (error) {
         console.error(error);
         return res.status(500).json({
